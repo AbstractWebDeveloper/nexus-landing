@@ -4,9 +4,9 @@
 <template>
   <footer class="border-t border-border py-12 px-6 sm:px-8 lg:px-12" data-animate="fade-up">
     <div class="max-w-7xl mx-auto">
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-8 mb-12">
         <!-- Brand -->
-        <div class="sm:col-span-2 md:col-span-1 min-w-0">
+        <div class="col-span-2 md:col-span-1 min-w-0">
           <a href="#" class="text-xl font-bold text-text-primary flex items-center gap-2 mb-4">
             <span class="w-7 h-7 rounded-lg bg-gradient-to-br from-gradient-from to-gradient-to flex items-center justify-center text-white text-xs flex-shrink-0">
               N
