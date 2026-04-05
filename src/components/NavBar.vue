@@ -83,22 +83,16 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   >
     <button
       @click="toggle"
-      class="nav-pill group relative flex items-center gap-3 px-5 py-2 rounded-full
-             bg-bg-primary/80 backdrop-blur-xl border border-border/50
-             shadow-lg hover:shadow-xl hover:border-gradient-from/40
+      class="nav-pill group relative flex items-center justify-center w-10 h-10 rounded-full
+             bg-bg-surface/50 backdrop-blur-xl border border-border/30
+             shadow-md hover:shadow-lg hover:border-gradient-from/30
              transition-all duration-300 cursor-pointer"
     >
       <!-- Shimmer border -->
       <span class="pill-shimmer" />
 
-      <!-- Logo icon -->
-      <span class="w-6 h-6 rounded-md bg-gradient-to-br from-gradient-from to-gradient-to flex items-center justify-center text-white text-[10px] font-bold flex-shrink-0">N</span>
-
-      <!-- Separator -->
-      <span class="w-px h-4 bg-border/50" />
-
-      <!-- Expand arrow -->
-      <svg class="w-4 h-4 text-text-muted group-hover:text-text-primary transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+      <!-- Just a chevron down, semi-transparent -->
+      <svg class="w-4 h-4 text-text-secondary/60 group-hover:text-text-primary transition-colors relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
       </svg>
     </button>
