@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 import { fileURLToPath } from 'url'
 
 export default defineConfig({
+  base: process.env.GITHUB_ACTIONS ? '/nexus-landing/' : '/',
   plugins: [vue(), tailwindcss()],
   resolve: {
     alias: {
