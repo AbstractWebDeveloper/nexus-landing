@@ -75,24 +75,36 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   <!-- Collapsed pill (appears when scrolled & not expanded) -->
   <div
     :class="[
-      'fixed top-3 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out',
+      'fixed top-4 left-4 z-50 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]',
       scrolled && !expanded
-        ? 'opacity-100 translate-y-0'
-        : 'opacity-0 -translate-y-4 pointer-events-none',
+        ? 'opacity-100 translate-y-0 scale-100'
+        : 'opacity-0 -translate-y-3 scale-90 pointer-events-none',
     ]"
   >
     <button
       @click="toggle"
-      class="nav-pill group relative flex items-center justify-center w-10 h-10 rounded-full
-             bg-bg-surface/50 backdrop-blur-xl border border-border/30
-             shadow-md hover:shadow-lg hover:border-gradient-from/30
-             transition-all duration-300 cursor-pointer"
+      class="nav-pill group relative flex items-center justify-center w-11 h-11 rounded-full
+             bg-bg-surface/60 backdrop-blur-2xl border border-gradient-from/20
+             shadow-[0_0_20px_rgba(var(--gradient-from),0.15)]
+             hover:shadow-[0_0_30px_rgba(var(--gradient-from),0.25)]
+             hover:border-gradient-from/40 hover:bg-bg-surface/80
+             transition-all duration-500 cursor-pointer"
     >
       <!-- Shimmer border -->
       <span class="pill-shimmer" />
 
-      <!-- Just a chevron down, semi-transparent -->
-      <svg class="w-4 h-4 text-text-secondary/60 group-hover:text-text-primary transition-colors relative z-10" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor">
+      <!-- Chevron with gradient color -->
+      <svg
+        class="w-5 h-5 relative z-10 transition-all duration-500
+               group-hover:translate-y-0.5"
+        fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="url(#chevron-grad)"
+      >
+        <defs>
+          <linearGradient id="chevron-grad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="var(--gradient-from)" />
+            <stop offset="100%" stop-color="var(--gradient-to)" />
+          </linearGradient>
+        </defs>
         <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
       </svg>
     </button>
