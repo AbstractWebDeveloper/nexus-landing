@@ -4,6 +4,7 @@ import NavBar from '@/components/NavBar.vue'
 import HeroSection from '@/components/HeroSection.vue'
 import LogoCarousel from '@/components/LogoCarousel.vue'
 import FeaturesSection from '@/components/FeaturesSection.vue'
+import WidgetsShowcase from '@/components/WidgetsShowcase.vue'
 import HowItWorksSection from '@/components/HowItWorksSection.vue'
 import TestimonialsSection from '@/components/TestimonialsSection.vue'
 import PricingSection from '@/components/PricingSection.vue'
@@ -19,6 +20,7 @@ useScrollAnimations()
     <HeroSection />
     <LogoCarousel />
     <FeaturesSection />
+    <WidgetsShowcase />
     <HowItWorksSection />
     <TestimonialsSection />
     <PricingSection />

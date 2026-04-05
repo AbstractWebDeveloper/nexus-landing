@@ -8,9 +8,8 @@ defineProps<{
 
 <template>
   <div
-    class="group relative p-6 rounded-2xl border border-border bg-bg-surface/40 backdrop-blur-sm
-           hover:bg-bg-surface-hover hover:border-gradient-from/30 transition-all duration-300
-           hover:shadow-[0_0_40px_rgba(var(--gradient-from),0.1)]"
+    class="card-shimmer group p-6 rounded-2xl border border-border bg-bg-surface/40 backdrop-blur-sm
+           hover:bg-bg-surface-hover hover:border-gradient-from/30 transition-all duration-300"
   >
     <div
       class="w-12 h-12 mb-4 flex items-center justify-center rounded-xl

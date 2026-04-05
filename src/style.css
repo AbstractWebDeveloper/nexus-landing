@@ -70,6 +70,105 @@
   --border-color: rgba(249, 115, 22, 0.2);
 }
 
+/* ── Theme transition ── */
+html.theme-transitioning,
+html.theme-transitioning *,
+html.theme-transitioning *::before,
+html.theme-transitioning *::after {
+  transition: background-color 500ms ease, color 500ms ease, border-color 500ms ease,
+              box-shadow 500ms ease, fill 500ms ease, stroke 500ms ease !important;
+}
+
+/* ── Shimmer border ── */
+@property --shimmer-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes shimmer-rotate {
+  to { --shimmer-angle: 360deg; }
+}
+
+.card-shimmer {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.card-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--shimmer-angle),
+    transparent 0%,
+    var(--gradient-from) 10%,
+    var(--gradient-to) 20%,
+    transparent 30%
+  );
+  z-index: -2;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  animation: shimmer-rotate 3s linear infinite;
+}
+
+.card-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  border-radius: inherit;
+  background: var(--bg-surface);
+  z-index: -1;
+}
+
+@media (hover: hover) {
+  .card-shimmer:hover::before {
+    opacity: 1;
+  }
+}
+
+@media (hover: none) {
+  .card-shimmer::before {
+    opacity: 0.3;
+    animation: shimmer-rotate 6s linear infinite;
+  }
+}
+
+/* ── Widget animations ── */
+@keyframes bar-grow {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+@keyframes ring-fill {
+  to { stroke-dashoffset: 66; }
+}
+
+@keyframes draw-line {
+  from { stroke-dashoffset: 200; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to   { width: 100%; }
+}
+
+@keyframes blink-cursor {
+  50% { border-color: transparent; }
+}
+
+@keyframes node-activate {
+  0%   { opacity: 0.3; }
+  100% { opacity: 1; filter: drop-shadow(0 0 8px var(--gradient-from)); }
+}
+
+@keyframes dash-flow {
+  to { stroke-dashoffset: -20; }
+}
+
 /* ── Base (layered to not override Tailwind utilities) ── */
 @layer base {
   html {

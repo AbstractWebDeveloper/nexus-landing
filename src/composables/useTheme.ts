@@ -9,8 +9,13 @@ const currentTheme = ref<Theme>(
 
 export function useTheme() {
   function setTheme(theme: Theme) {
-    document.documentElement.className = theme
+    const el = document.documentElement
+    el.classList.add('theme-transitioning')
+    // Remove old theme class, keep everything else
+    themes.forEach((t) => el.classList.remove(t))
+    el.classList.add(theme)
     currentTheme.value = theme
+    setTimeout(() => el.classList.remove('theme-transitioning'), 550)
   }
 
   function nextTheme() {
