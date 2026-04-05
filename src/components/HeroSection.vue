@@ -20,6 +20,15 @@ onMounted(() => {
     ease: 'power3.out',
     delay: 0.4,
   })
+
+  // Fade out scroll indicator on scroll
+  const indicator = heroRef.value.querySelector('.scroll-indicator')
+  if (indicator) {
+    window.addEventListener('scroll', () => {
+      const opacity = Math.max(0, 1 - window.scrollY / 300)
+      ;(indicator as HTMLElement).style.opacity = String(opacity)
+    })
+  }
 })
 </script>
 
@@ -33,7 +42,7 @@ onMounted(() => {
     </div>
 
     <!-- Content -->
-    <div class="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center pt-24 pb-20">
+    <div class="relative z-10 max-w-4xl mx-auto px-6 sm:px-8 lg:px-12 text-center pt-24 pb-32">
       <div data-hero-anim class="mb-8">
         <GlowBadge>Now in Public Beta</GlowBadge>
       </div>
@@ -57,7 +66,7 @@ onMounted(() => {
         streamlines your workflows, and scales with your ambition.
       </p>
 
-      <div data-hero-anim class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-20">
+      <div data-hero-anim class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
         <GradientButton size="lg">
           Start Building Free
           <svg class="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -67,7 +76,7 @@ onMounted(() => {
         <GradientButton size="lg" variant="outline">View Demo</GradientButton>
       </div>
 
-      <!-- Stats with counter animation -->
+      <!-- Stats -->
       <div data-hero-anim class="grid grid-cols-3 gap-6 sm:gap-10 max-w-md mx-auto">
         <div>
           <div class="text-2xl md:text-3xl font-bold text-text-primary" data-counter="10" data-counter-suffix="M+">0</div>
@@ -84,11 +93,10 @@ onMounted(() => {
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-text-muted z-10">
-      <span class="text-xs tracking-[0.2em] uppercase">Scroll</span>
-      <div class="w-5 h-8 border-2 border-text-muted/30 rounded-full flex justify-center pt-1.5">
-        <div class="w-1 h-2 bg-gradient-from rounded-full animate-bounce" />
+    <!-- Scroll indicator — positioned below stats with fade on scroll -->
+    <div class="scroll-indicator absolute bottom-6 left-1/2 -translate-x-1/2 z-10 transition-opacity duration-300">
+      <div class="w-6 h-10 border-2 border-text-muted/30 rounded-full flex justify-center pt-2">
+        <div class="w-1 h-2.5 bg-gradient-from rounded-full animate-bounce" />
       </div>
     </div>
   </section>
