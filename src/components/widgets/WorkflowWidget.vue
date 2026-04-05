@@ -6,19 +6,19 @@ const el = ref<HTMLElement | null>(null)
 const visible = useInView(el)
 
 const nodes = [
-  { x: 30, y: 90, label: 'API', delay: 0 },
-  { x: 130, y: 40, label: 'Validate', delay: 0.6 },
-  { x: 130, y: 140, label: 'Log', delay: 0.8 },
-  { x: 250, y: 90, label: 'Transform', delay: 1.2 },
-  { x: 360, y: 90, label: 'Deploy', delay: 1.8 },
+  { x: 20, y: 90, label: 'API', delay: 0 },
+  { x: 110, y: 40, label: 'Validate', delay: 0.6 },
+  { x: 110, y: 140, label: 'Log', delay: 0.8 },
+  { x: 210, y: 90, label: 'Transform', delay: 1.2 },
+  { x: 310, y: 90, label: 'Deploy', delay: 1.8 },
 ]
 
 const lines = [
-  { x1: 65, y1: 90, x2: 115, y2: 50, delay: 0.3 },
-  { x1: 65, y1: 90, x2: 115, y2: 140, delay: 0.4 },
-  { x1: 165, y1: 50, x2: 235, y2: 90, delay: 0.9 },
-  { x1: 165, y1: 140, x2: 235, y2: 90, delay: 1.0 },
-  { x1: 285, y1: 90, x2: 345, y2: 90, delay: 1.5 },
+  { x1: 55, y1: 90, x2: 95, y2: 50, delay: 0.3 },
+  { x1: 55, y1: 90, x2: 95, y2: 140, delay: 0.4 },
+  { x1: 145, y1: 50, x2: 195, y2: 90, delay: 0.9 },
+  { x1: 145, y1: 140, x2: 195, y2: 90, delay: 1.0 },
+  { x1: 245, y1: 90, x2: 295, y2: 90, delay: 1.5 },
 ]
 </script>
 
@@ -36,7 +36,7 @@ const lines = [
     </div>
 
     <div class="p-5">
-      <svg viewBox="0 0 400 180" class="w-full h-auto">
+      <svg viewBox="0 0 380 180" class="w-full h-auto">
         <!-- Connecting lines -->
         <line
           v-for="(l, i) in lines"
